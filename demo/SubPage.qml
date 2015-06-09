@@ -30,9 +30,10 @@ Page {
             icon: "action/home"
         },
 
-        // You can also leave out the icon
+        // You can also leave out the icon, and disable certain tabs
         {
-            text:"Projects",
+            text:"Disabled",
+            enabled: false
         },
 
         // Or just simply use a string

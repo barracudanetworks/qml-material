@@ -47,6 +47,7 @@ Row {
             id: tabItem
             width:Units.dp(48) + row.width
             height: tabbar.height
+            enabled: modelData.hasOwnProperty("enabled") ? modelData.enabled : true
 
             property bool selected: index == tabbar.selectedIndex
 
@@ -94,7 +95,7 @@ Row {
                     name: modelData.hasOwnProperty("icon") ? modelData.icon : ""
                     color: tabItem.selected 
                             ? darkBackground ? Theme.dark.iconColor : Theme.light.accentColor
-                            : darkBackground ? Theme.dark.shade(0.6) : Theme.light.shade(0.6)
+                            : darkBackground ? Theme.dark.shade(enabled ? 0.6 : 0.3) : Theme.light.shade(enabled ? 0.6 : 0.3)
 
                     visible: name != ""
 
@@ -109,7 +110,7 @@ Row {
                     text: modelData.hasOwnProperty("text") ? modelData.text : modelData
                     color: tabItem.selected
                             ? darkBackground ? Theme.dark.textColor : Theme.light.accentColor
-                            : darkBackground ? Theme.dark.shade(0.6) : Theme.light.shade(0.6)
+                            : darkBackground ? Theme.dark.shade(enabled ? 0.6 : 0.3) : Theme.light.shade(enabled ? 0.6 : 0.3)
 
                     style: "body2"
                     font.capitalization: Font.AllUppercase
